@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Device;
 use App\Models\FeedingLog;
 use App\Models\Setting;
 use App\Models\WebNotification;
-use App\Notifications\IotNotification;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class FeedingLogController extends Controller
 {
@@ -33,8 +32,21 @@ class FeedingLogController extends Controller
                 'created_at' => now(),
             ]);
 
-            if (Setting::get('telegram_chat_id')) {
-                Notification::send(new Device(), new IotNotification($message));
+            $telegramChatId = Setting::get('telegram_chat_id');
+            $telegramBotToken = config('services.telegram-bot-api.token');
+            
+            if ($telegramChatId && $telegramBotToken) {
+                try {
+                    \Illuminate\Support\Facades\Http::post(
+                        "https://api.telegram.org/bot{$telegramBotToken}/sendMessage",
+                        [
+                            'chat_id' => $telegramChatId,
+                            'text' => $message,
+                        ]
+                    );
+                } catch (\Exception $e) {
+                    \Illuminate\Support\Facades\Log::error('Telegram notification failed: ' . $e->getMessage());
+                }
             }
         }
 

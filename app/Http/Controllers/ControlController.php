@@ -21,10 +21,10 @@ class ControlController extends Controller
             'duration' => 'required|integer|min:1|max:60',
         ]);
 
-        $device = Device::first();
-        if (! $device) {
-            $device = Device::create(['name' => Setting::get('pond_name', 'Kolam Utama')]);
-        }
+        $device = Device::firstOrCreate(
+            [],
+            ['name' => Setting::get('pond_name', 'Kolam Utama')]
+        );
 
         $device->update([
             'manual_feed_pending' => true,

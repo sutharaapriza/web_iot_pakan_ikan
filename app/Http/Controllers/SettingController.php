@@ -33,7 +33,27 @@ class SettingController extends Controller
             'pond_name' => 'required|string|max:100',
             'full_distance' => 'required|numeric|min:0|max:999.99',
             'empty_distance' => 'required|numeric|min:0|max:999.99|different:full_distance',
+        ], [], [
+            'empty_distance.different' => 'Jarak kosong harus berbeda dengan jarak penuh.',
         ]);
+
+        // Validasi logic: empty_distance harus lebih besar dari full_distance
+        $fullDistance = (float) $data['full_distance'];
+        $emptyDistance = (float) $data['empty_distance'];
+        
+        if ($fullDistance >= $emptyDistance) {
+            return redirect()->back()
+                ->withInput()
+                ->withErrors(['empty_distance' => 'Jarak kosong harus lebih besar dari jarak penuh.']);
+        }
+
+        // Validasi low stock threshold harus kurang dari empty distance
+        $lowStockThreshold = (float) $data['low_stock_threshold'];
+        if ($lowStockThreshold > $emptyDistance) {
+            return redirect()->back()
+                ->withInput()
+                ->withErrors(['low_stock_threshold' => 'Ambang stok rendah tidak boleh melebihi jarak kosong.']);
+        }
         
         foreach ($data as $key => $value) {
             Setting::set($key, $value);

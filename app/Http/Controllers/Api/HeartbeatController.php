@@ -8,7 +8,8 @@ use App\Models\Setting;
 use App\Models\StockLog;
 use App\Models\WebNotification;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class HeartbeatController extends Controller
 {
@@ -18,10 +19,10 @@ class HeartbeatController extends Controller
             'distance' => 'required|numeric|min:0|max:999.99',
         ]);
 
-        $device = Device::first();
-        if (! $device) {
-            $device = Device::create(['name' => Setting::get('pond_name', 'Kolam Utama')]);
-        }
+        $device = Device::firstOrCreate(
+            [],
+            ['name' => Setting::get('pond_name', 'Kolam Utama')]
+        );
 
         $device->update([
             'last_heartbeat' => now(),
@@ -59,8 +60,21 @@ class HeartbeatController extends Controller
                     'created_at' => now(),
                 ]);
 
-                if (Setting::get('telegram_chat_id')) {
-                    Notification::send(new Device(), new \App\Notifications\IotNotification($message));
+                $telegramChatId = Setting::get('telegram_chat_id');
+                $telegramBotToken = config('services.telegram-bot-api.token');
+                
+                if ($telegramChatId && $telegramBotToken) {
+                    try {
+                        \Illuminate\Support\Facades\Http::post(
+                            "https://api.telegram.org/bot{$telegramBotToken}/sendMessage",
+                            [
+                                'chat_id' => $telegramChatId,
+                                'text' => $message,
+                            ]
+                        );
+                    } catch (\Exception $e) {
+                        \Illuminate\Support\Facades\Log::error('Telegram notification failed: ' . $e->getMessage());
+                    }
                 }
             }
         }
