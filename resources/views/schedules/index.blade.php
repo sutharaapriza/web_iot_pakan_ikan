@@ -20,7 +20,7 @@
     </x-slot>
 
     <div class="py-8 space-y-10 animate-in fade-in slide-in-from-bottom-6 duration-1000">
-        <div class="glass-card rounded-3xl p-6 border-white/40 flex items-center gap-6 shadow-sm">
+        <div class="glass-card rounded-3xl p-6 border border-primary-100 flex items-center gap-6 shadow-sm">
             <div class="w-12 h-12 bg-primary-50 rounded-2xl flex items-center justify-center text-primary-600 shrink-0">
                 <i class="fas fa-info-circle text-xl"></i>
             </div>
@@ -31,7 +31,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @forelse ($schedules as $schedule)
-                <div class="glass-card rounded-[2.5rem] shadow-premium border border-white/50 overflow-hidden transition-all hover:scale-[1.03] hover:shadow-premium-hover group relative">
+                <div class="glass-card rounded-[2.5rem] shadow-premium border border-primary-100 overflow-hidden transition-all hover:scale-[1.03] hover:shadow-premium-hover group relative">
                     @if($schedule->is_active)
                         <div class="absolute top-0 right-0 w-32 h-32 bg-primary-500/5 rounded-full -mr-16 -mt-16"></div>
                     @endif
@@ -42,13 +42,13 @@
                                 <i class="fas {{ $schedule->is_active ? 'fa-bell animate-swing' : 'fa-bell-slash' }} text-2xl"></i>
                             </div>
                             <div class="flex gap-2">
-                                <button onclick="editSchedule({{ $schedule }})" class="w-10 h-10 rounded-xl bg-white/50 hover:bg-white text-gray-400 hover:text-primary-600 transition-all shadow-sm flex items-center justify-center border border-white">
+                                <button onclick="editSchedule({{ $schedule }})" class="w-10 h-10 rounded-xl bg-white/50 hover:bg-white text-gray-400 hover:text-primary-600 transition-all shadow-sm flex items-center justify-center border border-primary-100">
                                     <i class="fas fa-edit text-xs"></i>
                                 </button>
                                 <form action="{{ route('schedules.destroy', $schedule) }}" method="POST" class="inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" onclick="return confirm('Hapus jadwal ini?')" class="w-10 h-10 rounded-xl bg-white/50 hover:bg-primary-50 text-gray-400 hover:text-primary-600 transition-all shadow-sm flex items-center justify-center border border-white">
+                                    <button type="submit" onclick="return confirm('Hapus jadwal ini?')" class="w-10 h-10 rounded-xl bg-white/50 hover:bg-primary-50 text-gray-400 hover:text-primary-600 transition-all shadow-sm flex items-center justify-center border border-primary-100">
                                         <i class="fas fa-trash text-xs"></i>
                                     </button>
                                 </form>
@@ -65,7 +65,7 @@
                             <p class="text-gray-400 text-[10px] font-black mt-3 uppercase tracking-[0.2em] ml-1">Waktu Pemberian Pakan</p>
                         </div>
 
-                        <div class="flex items-center justify-between pt-8 border-t border-white/20 mt-auto">
+                        <div class="flex items-center justify-between pt-8 border-t border-primary-100 mt-auto">
                             <div class="flex flex-col">
                                 <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Durasi</span>
                                 <div class="flex items-center text-sm font-black text-gray-700">
@@ -84,7 +84,7 @@
                     </div>
                 </div>
             @empty
-                <div class="md:col-span-2 lg:col-span-3 py-32 glass-card rounded-[3rem] border-2 border-dashed border-white/60 flex flex-col items-center justify-center group hover:border-primary-400 transition-colors cursor-pointer" onclick="openScheduleModal()">
+                        <div class="md:col-span-2 lg:col-span-3 py-32 glass-card rounded-[3rem] border-2 border-dashed border-primary-100 flex flex-col items-center justify-center group hover:border-primary-400 transition-colors cursor-pointer" onclick="openScheduleModal()">
                     <div class="w-24 h-24 bg-white/50 rounded-[2rem] flex items-center justify-center text-gray-200 mb-8 shadow-inner group-hover:scale-110 group-hover:text-primary-200 transition-all">
                         <i class="fas fa-calendar-plus text-4xl"></i>
                     </div>
@@ -97,7 +97,7 @@
 
     <!-- Premium Modal -->
     <div id="schedule-modal" class="fixed inset-0 bg-gray-900/60 backdrop-blur-md z-50 hidden flex items-center justify-center p-6">
-        <div class="glass-card bg-white/90 rounded-[3rem] max-w-md w-full overflow-hidden shadow-2xl transform transition-all scale-95 opacity-0 duration-500 border border-white/50" id="modalContent">
+        <div class="glass-card bg-white/90 rounded-[3rem] max-w-md w-full overflow-hidden shadow-2xl transform transition-all scale-95 opacity-0 duration-500 border border-primary-100" id="modalContent">
             <div class="p-10">
                 <div class="flex justify-between items-center mb-10">
                     <div>
@@ -119,7 +119,7 @@
                             <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none text-gray-400 group-focus-within:text-primary-500 transition-colors">
                                 <i class="fas fa-clock text-lg"></i>
                             </div>
-                            <input type="time" name="time" id="input-time" required class="block w-full pl-14 pr-6 py-5 bg-white border border-white focus:border-primary-500 focus:ring-0 rounded-3xl transition-all font-black text-3xl text-gray-800 shadow-inner group-focus-within:shadow-premium">
+                            <input type="time" name="time" id="input-time" required class="block w-full pl-14 pr-6 py-5 bg-white border border-primary-100 focus:border-primary-500 focus:ring-0 rounded-3xl transition-all font-black text-3xl text-gray-800 shadow-inner group-focus-within:shadow-premium">
                         </div>
                     </div>
 
@@ -129,7 +129,7 @@
                             <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none text-gray-400 group-focus-within:text-primary-500 transition-colors">
                                 <i class="fas fa-hourglass-half"></i>
                             </div>
-                            <input type="number" name="duration" id="input-duration" min="1" value="3" required class="block w-full pl-14 pr-6 py-5 bg-white border border-white focus:border-primary-500 focus:ring-0 rounded-3xl transition-all font-black text-xl text-gray-700 shadow-inner group-focus-within:shadow-premium" placeholder="3">
+                            <input type="number" name="duration" id="input-duration" min="1" value="3" required class="block w-full pl-14 pr-6 py-5 bg-white border border-primary-100 focus:border-primary-500 focus:ring-0 rounded-3xl transition-all font-black text-xl text-gray-700 shadow-inner group-focus-within:shadow-premium" placeholder="3">
                         </div>
                         <div class="p-4 bg-primary-50/50 rounded-2xl border border-primary-100 flex items-center gap-3">
                             <i class="fas fa-info-circle text-primary-500"></i>
@@ -138,7 +138,7 @@
                     </div>
 
                     <div id="active-container" class="hidden py-6 border-t border-gray-100">
-                        <label class="flex items-center justify-between cursor-pointer group bg-gray-50/50 p-4 rounded-2xl border border-white transition-all hover:bg-white">
+                        <label class="flex items-center justify-between cursor-pointer group bg-gray-50/50 p-4 rounded-2xl border border-primary-100 transition-all hover:bg-white">
                             <span class="text-sm font-black text-gray-600 uppercase tracking-widest group-hover:text-primary-600 transition-colors">Aktifkan Jadwal Ini</span>
                             <div class="relative">
                                 <input type="checkbox" name="is_active" id="input-active" checked class="hidden peer">

@@ -12,7 +12,7 @@
 
     <div class="max-w-xl mx-auto py-6 animate-in zoom-in duration-500">
         <!-- Main Control Card -->
-        <div class="glass-card rounded-[3rem] shadow-premium border border-white/50 overflow-hidden relative group transition-all hover:shadow-premium-hover">
+        <div class="glass-card rounded-[3rem] shadow-premium border border-primary-100 overflow-hidden relative group transition-all hover:shadow-premium-hover">
             <div class="absolute top-0 right-0 w-64 h-64 bg-primary-500/5 rounded-full -mr-32 -mt-32 transition-transform group-hover:scale-110"></div>
 
             <div class="p-8 relative z-10">
@@ -22,11 +22,11 @@
                             <i class="fas fa-bolt text-4xl text-white"></i>
                         </div>
                         @if ($device && $device->status == 'online')
-                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-primary-500 border-4 border-white rounded-full shadow-lg z-20 flex items-center justify-center text-white text-[10px]">
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-emerald-500 border-4 border-white rounded-full shadow-lg z-20 flex items-center justify-center text-white text-[10px]">
                                 <i class="fas fa-check"></i>
                             </div>
                         @else
-                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-primary-500 border-4 border-white rounded-full shadow-lg z-20 flex items-center justify-center text-white text-[10px]">
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-red-400 border-4 border-white rounded-full shadow-lg z-20 flex items-center justify-center text-white text-[10px]">
                                 <i class="fas fa-times"></i>
                             </div>
                         @endif
@@ -37,13 +37,13 @@
                 </div>
 
                 @if ($device && $device->status == 'offline')
-                    <div class="mb-8 p-4 bg-primary-50/50 backdrop-blur-sm rounded-3xl border border-primary-100 flex items-start gap-5 shadow-sm">
-                        <div class="w-12 h-12 bg-primary-100 rounded-2xl flex items-center justify-center shrink-0 shadow-inner">
-                            <i class="fas fa-wifi-slash text-primary-600 text-xl"></i>
+                    <div class="mb-8 p-5 bg-amber-50/80 backdrop-blur-sm rounded-3xl border border-amber-200 flex items-start gap-5 shadow-sm">
+                        <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center shrink-0 shadow-inner">
+                            <i class="fas fa-wifi text-amber-600 text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="text-base font-black text-primary-900 uppercase tracking-widest text-xs">Alat Sedang Offline</h4>
-                            <p class="text-sm text-primary-700 mt-2 font-medium leading-relaxed italic opacity-80">Perintah manual tidak akan langsung dieksekusi. Pastikan alat terhubung ke internet untuk performa maksimal.</p>
+                            <h4 class="text-xs font-black text-amber-800 uppercase tracking-widest">Alat Sedang Offline</h4>
+                            <p class="text-sm text-amber-700 mt-2 font-medium leading-relaxed opacity-80">Perintah manual tidak akan langsung dieksekusi. Pastikan alat terhubung ke internet untuk performa maksimal.</p>
                         </div>
                     </div>
                 @endif
@@ -57,7 +57,7 @@
                         </div>
                         <div class="relative px-2">
                             <input type="range" id="duration-slider" name="duration" min="1" max="10" step="1" value="{{ $defaultDuration }}"
-                                   class="w-full h-3 bg-gray-200 rounded-full appearance-none cursor-pointer accent-primary-600 focus:outline-none transition-all shadow-inner border border-white/50">
+                                   class="w-full h-3 bg-gray-200 rounded-full appearance-none cursor-pointer accent-primary-600 focus:outline-none transition-all shadow-inner border border-primary-100">
                             <div class="flex justify-between mt-4 text-[10px] font-black text-gray-400 px-2 tracking-widest uppercase">
                                 <span>1 Detik</span>
                                 <span>5 Detik</span>
@@ -78,22 +78,22 @@
             </div>
 
             <!-- Footer Section -->
-            <div class="bg-gray-50/50 backdrop-blur-sm px-8 py-8 border-t border-white/30">
+            <div class="bg-gray-50/50 backdrop-blur-sm px-8 py-8 border-t border-primary-100">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="flex items-center gap-4 group">
-                        <div class="w-9 h-9 rounded-xl bg-primary-50 flex items-center justify-center shadow-inner group-hover:bg-primary-500 group-hover:text-white transition-all">
+                        <div class="w-9 h-9 rounded-xl bg-primary-50 flex items-center justify-center shadow-inner group-hover:bg-primary-500 group-hover:text-white transition-all text-primary-500">
                             <i class="fas fa-cloud-upload-alt text-xs"></i>
                         </div>
                         <span class="text-[10px] font-black text-gray-400 uppercase tracking-tighter leading-tight group-hover:text-gray-600 transition-colors">Sinyal Dikirim ke Server</span>
                     </div>
                     <div class="flex items-center gap-4 group">
-                        <div class="w-9 h-9 rounded-xl bg-primary-50 flex items-center justify-center shadow-inner group-hover:bg-primary-500 group-hover:text-white transition-all">
+                        <div class="w-9 h-9 rounded-xl bg-primary-50 flex items-center justify-center shadow-inner group-hover:bg-primary-500 group-hover:text-white transition-all text-primary-500">
                             <i class="fas fa-microchip text-xs"></i>
                         </div>
                         <span class="text-[10px] font-black text-gray-400 uppercase tracking-tighter leading-tight group-hover:text-gray-600 transition-colors">Diterima oleh ESP32</span>
                     </div>
                     <div class="flex items-center gap-4 group">
-                        <div class="w-9 h-9 rounded-xl bg-primary-50 flex items-center justify-center shadow-inner group-hover:bg-primary-500 group-hover:text-white transition-all">
+                        <div class="w-9 h-9 rounded-xl bg-primary-50 flex items-center justify-center shadow-inner group-hover:bg-primary-500 group-hover:text-white transition-all text-primary-500">
                             <i class="fas fa-check-double text-xs"></i>
                         </div>
                         <span class="text-[10px] font-black text-gray-400 uppercase tracking-tighter leading-tight group-hover:text-gray-600 transition-colors">Konfirmasi Eksekusi</span>

@@ -7,7 +7,7 @@
                 </div>
                 {{ __('Dashboard Monitoring') }}
             </h2>
-            <div class="flex items-center gap-3 bg-white/50 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/50 shadow-sm">
+            <div class="flex items-center gap-3 bg-white/50 backdrop-blur-md px-4 py-2 rounded-2xl border border-primary-100 shadow-sm">
                 <div class="w-2 h-2 rounded-full bg-primary-500 animate-pulse"></div>
                 <span class="text-xs font-black text-gray-600 uppercase tracking-widest">Sistem Real-time</span>
             </div>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="relative z-10">
                     <h3 class="text-gray-400 text-xs font-black uppercase tracking-[0.2em] mb-4">Sisa Stok Pakan</h3>
-                    <div class="w-full bg-gray-100/50 rounded-full h-3 p-0.5 border border-white/50 shadow-inner">
+                    <div class="w-full bg-gray-100/50 rounded-full h-3 p-0.5 border border-primary-100 shadow-inner">
                         <div id="stock-bar" class="h-full rounded-full transition-all duration-1000 shadow-sm" style="width: 0%"></div>
                     </div>
                     <div class="flex items-center mt-4 gap-2">
@@ -86,15 +86,15 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <!-- Last Activity Table -->
-            <div class="lg:col-span-2 glass-card rounded-[2rem] overflow-hidden border border-white/40">
-                <div class="px-10 py-8 border-b border-white/20 flex justify-between items-center bg-white/30">
+            <div class="lg:col-span-2 glass-card rounded-[2rem] overflow-hidden border border-primary-100">
+                <div class="px-10 py-8 border-b border-primary-100 flex justify-between items-center bg-white/30">
                     <h3 class="font-black text-xl text-gray-800 flex items-center tracking-tight">
                         <div class="w-8 h-8 rounded-lg bg-primary-100 text-primary-600 flex items-center justify-center mr-3 shadow-sm">
                             <i class="fas fa-history text-sm"></i>
                         </div>
                         Aktivitas Terakhir
                     </h3>
-                    <a href="{{ route('logs.index') }}" class="px-6 py-2 bg-white/60 hover:bg-white rounded-xl text-primary-600 text-xs font-black uppercase tracking-widest transition-all border border-white/50 shadow-sm">
+                    <a href="{{ route('logs.index') }}" class="px-6 py-2 bg-white/60 hover:bg-white rounded-xl text-primary-600 text-xs font-black uppercase tracking-widest transition-all border border-primary-100 shadow-sm">
                         Lihat Semua
                     </a>
                 </div>
@@ -115,7 +115,7 @@
             </div>
 
             <!-- Notifications Sidebar in Dashboard -->
-            <div class="glass-card rounded-[2rem] p-10 flex flex-col border border-white/40">
+            <div class="glass-card rounded-[2rem] p-10 flex flex-col border border-primary-100">
                 <h3 class="font-black text-xl text-gray-800 mb-8 flex items-center tracking-tight">
                     <div class="w-8 h-8 rounded-lg bg-primary-100 text-primary-600 flex items-center justify-center mr-3 shadow-sm">
                         <i class="fas fa-bell text-sm"></i>
@@ -125,7 +125,7 @@
                 <div id="notif-list" class="space-y-6 flex-1">
                     <!-- Notifications will be loaded via AJAX -->
                 </div>
-                <a href="{{ route('notifications.index') }}" class="mt-8 py-4 bg-gray-50/50 hover:bg-gray-100 rounded-2xl text-center text-xs font-black text-gray-400 hover:text-primary-600 transition-all uppercase tracking-[0.2em] border border-white/50">
+                <a href="{{ route('notifications.index') }}" class="mt-8 py-4 bg-gray-50/50 hover:bg-gray-100 rounded-2xl text-center text-xs font-black text-gray-400 hover:text-primary-600 transition-all uppercase tracking-[0.2em] border border-primary-100 block">
                     Buka Semua Notifikasi
                 </a>
             </div>
@@ -144,10 +144,10 @@
                     document.getElementById('device-name').textContent = device.name;
                     const statusBadge = document.getElementById('status-badge');
                     if (device.status === 'online') {
-                        statusBadge.className = 'px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-primary-50 text-primary-600 border-primary-100 shadow-primary-100/50';
+                        statusBadge.className = 'px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-emerald-50 text-emerald-600 border border-emerald-200 shadow-sm';
                         statusBadge.textContent = 'Online';
                     } else {
-                        statusBadge.className = 'px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-primary-50 text-primary-600 border-primary-100 shadow-primary-100/50';
+                        statusBadge.className = 'px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-red-50 text-red-500 border border-red-200 shadow-sm';
                         statusBadge.textContent = 'Offline';
                     }
                     document.getElementById('last-seen').textContent = 'Terakhir: ' + (device.last_heartbeat || '-');
@@ -159,11 +159,11 @@
                     stockBar.style.width = stock.percentage + '%';
                     
                     if (stock.percentage > 50) {
-                        stockBar.className = 'h-full rounded-full transition-all duration-1000 bg-gradient-to-r from-primary-400 to-primary-600 shadow-lg shadow-primary-200';
+                        stockBar.className = 'h-full rounded-full transition-all duration-1000 bg-gradient-to-r from-emerald-400 to-emerald-500 shadow-lg shadow-emerald-200';
                     } else if (stock.percentage > 20) {
-                        stockBar.className = 'h-full rounded-full transition-all duration-1000 bg-gradient-to-r from-primary-400 to-primary-600 shadow-lg shadow-primary-200';
+                        stockBar.className = 'h-full rounded-full transition-all duration-1000 bg-gradient-to-r from-amber-400 to-amber-500 shadow-lg shadow-amber-200';
                     } else {
-                        stockBar.className = 'h-full rounded-full transition-all duration-1000 bg-gradient-to-r from-primary-400 to-primary-600 shadow-lg shadow-primary-200';
+                        stockBar.className = 'h-full rounded-full transition-all duration-1000 bg-gradient-to-r from-red-400 to-red-500 shadow-lg shadow-red-200';
                     }
 
                     // Today Counts
@@ -175,12 +175,12 @@
                         <tr class="hover:bg-white/40 transition-colors">
                             <td class="px-10 py-6 font-bold text-gray-800">${log.executed_at}</td>
                             <td class="px-10 py-6">
-                                <span class="text-[10px] font-black px-3 py-1 bg-gray-100 rounded-lg uppercase tracking-widest border border-gray-200">${log.type}</span>
+                                <span class="text-[10px] font-black px-3 py-1 bg-primary-50 text-primary-600 rounded-lg uppercase tracking-widest border border-primary-100">${log.type}</span>
                             </td>
                             <td class="px-10 py-6">
                                 ${log.status === 'sukses' 
-                                    ? '<span class="text-primary-500 flex items-center font-black text-[10px] uppercase tracking-widest bg-primary-50 px-3 py-1 rounded-lg border border-primary-100 w-fit"><i class="fas fa-check-circle mr-2"></i> Sukses</span>' 
-                                    : '<span class="text-primary-500 flex items-center font-black text-[10px] uppercase tracking-widest bg-primary-50 px-3 py-1 rounded-lg border border-primary-100 w-fit"><i class="fas fa-times-circle mr-2"></i> Gagal</span>'}
+                                    ? '<span class="text-emerald-600 flex items-center font-black text-[10px] uppercase tracking-widest bg-emerald-50 px-3 py-1 rounded-lg border border-emerald-200 w-fit"><i class="fas fa-check-circle mr-2"></i> Sukses</span>' 
+                                    : '<span class="text-red-500 flex items-center font-black text-[10px] uppercase tracking-widest bg-red-50 px-3 py-1 rounded-lg border border-red-200 w-fit"><i class="fas fa-times-circle mr-2"></i> Gagal</span>'}
                             </td>
                         </tr>
                     `).join('') || '<tr><td colspan="3" class="px-10 py-20 text-center text-gray-400 italic font-medium">Belum ada aktivitas hari ini</td></tr>';
@@ -188,7 +188,7 @@
                     // Notifications
                     const notifList = document.getElementById('notif-list');
                     notifList.innerHTML = data.notifications.map(n => `
-                        <div class="p-5 rounded-3xl ${n.is_read ? 'bg-gray-50/50 opacity-60' : 'bg-primary-50/50 border-l-4 border-primary-500'} flex items-start gap-4 transition-all hover:bg-white shadow-sm border border-white/50 group">
+                        <div class="p-5 rounded-3xl ${n.is_read ? 'bg-gray-50/50 opacity-60' : 'bg-primary-50/50 border-l-4 border-primary-500'} flex items-start gap-4 transition-all hover:bg-white shadow-sm border border-primary-100 group">
                             <div class="mt-1 text-primary-500 transition-transform group-hover:scale-110"><i class="fas fa-info-circle"></i></div>
                             <div>
                                 <p class="text-sm font-bold text-gray-800 leading-tight">${n.message}</p>

@@ -29,11 +29,13 @@ class DashboardController extends Controller
         $latestStock = StockLog::latest('created_at')->first();
         $lastLogs = FeedingLog::latest('executed_at')->take(5)->get();
         
+        $isOnline = $device && $device->last_heartbeat && $device->last_heartbeat->diffInSeconds(now()) < 120;
+        
         return [
             'device' => [
                 'name' => Setting::get('pond_name', 'Kolam Utama'),
-                'status' => $device?->status ?? 'offline',
-                'last_heartbeat' => $device && $device->last_heartbeat ? Carbon::parse($device->last_heartbeat)->translatedFormat('d M Y, H:i') : '-',
+                'status' => $isOnline ? 'online' : 'offline',
+                'last_heartbeat' => $device && $device->last_heartbeat ? $device->last_heartbeat->translatedFormat('d M Y, H:i') : '-',
             ],
             'stock' => [
                 'percentage' => $latestStock?->percentage ?? 0,

@@ -105,7 +105,7 @@
             <div class="flex items-center gap-4">
                 @if (Route::has('login'))
                     @auth
-                        <a href="{{ url('/dashboard') }}" class="px-6 py-3 bg-white/50 backdrop-blur-md border border-white/50 text-gray-700 font-bold rounded-2xl hover:bg-white/80 transition-all shadow-sm">
+                        <a href="{{ url('/dashboard') }}" class="px-6 py-3 bg-white/50 backdrop-blur-md border border-primary-100 text-gray-700 font-bold rounded-2xl hover:bg-white/80 transition-all shadow-sm">
                             Dashboard
                         </a>
                     @else
@@ -141,7 +141,7 @@
                             Coba Sekarang 
                             <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i>
                         </a>
-                        <a href="#features" class="px-10 py-5 bg-white/50 backdrop-blur-md border border-white text-gray-700 font-bold rounded-[2rem] hover:bg-white/80 transition-all shadow-lg flex items-center gap-3">
+                        <a href="#features" class="px-10 py-5 bg-white/50 backdrop-blur-md border border-primary-100 text-gray-700 font-bold rounded-[2rem] hover:bg-white/80 transition-all shadow-lg flex items-center gap-3">
                             Pelajari Fitur
                         </a>
                     </div>

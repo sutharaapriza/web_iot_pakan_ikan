@@ -15,11 +15,11 @@
             @csrf
             <div class="space-y-10">
                 <!-- IoT Configuration -->
-                <div class="glass-card rounded-[2.5rem] shadow-premium border border-white/50 overflow-hidden transition-all hover:shadow-premium-hover group relative">
+                <div class="glass-card rounded-[2.5rem] shadow-premium border border-primary-100 overflow-hidden transition-all hover:shadow-premium-hover group relative">
                     <div class="absolute top-0 right-0 w-64 h-64 bg-primary-500/5 rounded-full -mr-32 -mt-32 transition-transform group-hover:scale-110"></div>
                     
                     <div class="p-10 relative z-10">
-                        <div class="flex items-center gap-5 mb-10 border-b border-white/20 pb-6">
+                        <div class="flex items-center gap-5 mb-10 border-b border-primary-100 pb-6">
                             <div class="w-14 h-14 bg-primary-50 text-primary-600 rounded-2xl flex items-center justify-center shadow-inner">
                                 <i class="fas fa-microchip text-2xl"></i>
                             </div>
@@ -34,7 +34,7 @@
                                 <label class="block text-xs font-black text-gray-600 uppercase tracking-widest ml-1">Durasi Default Servo</label>
                                 <div class="relative group">
                                     <input type="number" name="servo_duration" value="{{ $settings['servo_duration'] }}" 
-                                        class="w-full pl-6 pr-16 py-4 rounded-2xl border border-white/50 focus:border-primary-500 focus:ring-0 bg-white/50 transition-all font-black text-lg text-gray-800 shadow-inner focus:bg-white">
+                                        class="w-full pl-6 pr-16 py-4 rounded-2xl border border-primary-100 focus:border-primary-500 focus:ring-0 bg-white/50 transition-all font-black text-lg text-gray-800 shadow-inner focus:bg-white">
                                     <span class="absolute right-6 top-1/2 -translate-y-1/2 text-[10px] font-black text-gray-400 uppercase tracking-widest">Detik</span>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@
                                 <label class="block text-xs font-black text-gray-600 uppercase tracking-widest ml-1">Threshold Stok Menipis</label>
                                 <div class="relative group">
                                     <input type="number" step="0.1" name="low_stock_threshold" value="{{ $settings['low_stock_threshold'] }}" 
-                                        class="w-full pl-6 pr-16 py-4 rounded-2xl border border-white/50 focus:border-primary-500 focus:ring-0 bg-white/50 transition-all font-black text-lg text-gray-800 shadow-inner focus:bg-white">
+                                        class="w-full pl-6 pr-16 py-4 rounded-2xl border border-primary-100 focus:border-primary-500 focus:ring-0 bg-white/50 transition-all font-black text-lg text-gray-800 shadow-inner focus:bg-white">
                                     <span class="absolute right-6 top-1/2 -translate-y-1/2 text-[10px] font-black text-gray-400 uppercase tracking-widest">CM</span>
                                 </div>
                             </div>
@@ -50,14 +50,14 @@
                                 <label class="block text-xs font-black text-gray-600 uppercase tracking-widest ml-1">Ambang Batas Offline</label>
                                 <div class="relative group">
                                     <input type="number" name="offline_threshold" value="{{ $settings['offline_threshold'] }}" 
-                                        class="w-full pl-6 pr-16 py-4 rounded-2xl border border-white/50 focus:border-primary-500 focus:ring-0 bg-white/50 transition-all font-black text-lg text-gray-800 shadow-inner focus:bg-white">
+                                        class="w-full pl-6 pr-16 py-4 rounded-2xl border border-primary-100 focus:border-primary-500 focus:ring-0 bg-white/50 transition-all font-black text-lg text-gray-800 shadow-inner focus:bg-white">
                                     <span class="absolute right-6 top-1/2 -translate-y-1/2 text-[10px] font-black text-gray-400 uppercase tracking-widest">Menit</span>
                                 </div>
                             </div>
                             <div class="space-y-3">
                                 <label class="block text-xs font-black text-gray-600 uppercase tracking-widest ml-1">Nama Kolam / Perangkat</label>
                                 <input type="text" name="pond_name" value="{{ $settings['pond_name'] }}" 
-                                    class="w-full px-6 py-4 rounded-2xl border border-white/50 focus:border-primary-500 focus:ring-0 bg-white/50 transition-all font-black text-lg text-gray-800 shadow-inner focus:bg-white">
+                                    class="w-full px-6 py-4 rounded-2xl border border-primary-100 focus:border-primary-500 focus:ring-0 bg-white/50 transition-all font-black text-lg text-gray-800 shadow-inner focus:bg-white">
                             </div>
                             
                             <div class="md:col-span-2 bg-primary-50/30 rounded-[2rem] p-10 border border-primary-100/50 mt-4 relative overflow-hidden">
@@ -73,7 +73,7 @@
                                         <label class="block text-[10px] font-black text-primary-600 uppercase tracking-widest ml-1">Jarak Saat Penuh (100%)</label>
                                         <div class="relative group">
                                             <input type="number" step="0.1" name="full_distance" value="{{ $settings['full_distance'] }}" 
-                                                class="w-full pl-6 pr-14 py-4 rounded-2xl border border-white focus:border-primary-400 focus:ring-0 bg-white transition-all font-black text-lg text-primary-800 shadow-sm focus:shadow-premium">
+                                                   class="w-full pl-6 pr-14 py-4 rounded-2xl border border-primary-100 focus:border-primary-400 focus:ring-0 bg-white transition-all font-black text-lg text-primary-800 shadow-sm focus:shadow-premium">
                                             <span class="absolute right-6 top-1/2 -translate-y-1/2 text-[10px] font-black text-primary-300 uppercase tracking-widest">CM</span>
                                         </div>
                                     </div>
@@ -81,7 +81,7 @@
                                         <label class="block text-[10px] font-black text-primary-600 uppercase tracking-widest ml-1">Jarak Saat Kosong (0%)</label>
                                         <div class="relative group">
                                             <input type="number" step="0.1" name="empty_distance" value="{{ $settings['empty_distance'] }}" 
-                                                class="w-full pl-6 pr-14 py-4 rounded-2xl border border-white focus:border-primary-400 focus:ring-0 bg-white transition-all font-black text-lg text-primary-800 shadow-sm focus:shadow-premium">
+                                                   class="w-full pl-6 pr-14 py-4 rounded-2xl border border-primary-100 focus:border-primary-400 focus:ring-0 bg-white transition-all font-black text-lg text-primary-800 shadow-sm focus:shadow-premium">
                                             <span class="absolute right-6 top-1/2 -translate-y-1/2 text-[10px] font-black text-primary-300 uppercase tracking-widest">CM</span>
                                         </div>
                                     </div>
@@ -92,11 +92,11 @@
                 </div>
 
                 <!-- Telegram Integration -->
-                <div class="glass-card rounded-[2.5rem] shadow-premium border border-white/50 overflow-hidden transition-all hover:shadow-premium-hover group relative">
+                <div class="glass-card rounded-[2.5rem] shadow-premium border border-primary-100 overflow-hidden transition-all hover:shadow-premium-hover group relative">
                     <div class="absolute top-0 right-0 w-64 h-64 bg-primary-500/5 rounded-full -mr-32 -mt-32 transition-transform group-hover:scale-110"></div>
                     
                     <div class="p-10 relative z-10">
-                        <div class="flex items-center gap-5 mb-10 border-b border-white/20 pb-6">
+                        <div class="flex items-center gap-5 mb-10 border-b border-primary-100 pb-6">
                             <div class="w-14 h-14 bg-primary-50 text-primary-600 rounded-2xl flex items-center justify-center shadow-inner">
                                 <i class="fab fa-telegram-plane text-2xl"></i>
                             </div>
@@ -109,7 +109,7 @@
                             <div class="space-y-3">
                                 <label class="block text-xs font-black text-gray-600 uppercase tracking-widest ml-1">Telegram Chat ID</label>
                                 <input type="text" name="telegram_chat_id" value="{{ $settings['telegram_chat_id'] }}" 
-                                    class="w-full px-6 py-4 rounded-2xl border border-white/50 focus:border-primary-500 focus:ring-0 bg-white/50 transition-all font-black text-lg text-gray-800 shadow-inner focus:bg-white"
+                                    class="w-full px-6 py-4 rounded-2xl border border-primary-100 focus:border-primary-500 focus:ring-0 bg-white/50 transition-all font-black text-lg text-gray-800 shadow-inner focus:bg-white"
                                     placeholder="123456789">
                             </div>
                             <div class="p-6 bg-primary-50/50 backdrop-blur-sm rounded-3xl border border-primary-100 flex items-start gap-5">
@@ -126,11 +126,11 @@
                 </div>
 
                 <!-- API Authentication -->
-                <div class="glass-card rounded-[2.5rem] shadow-premium border border-white/50 overflow-hidden transition-all hover:shadow-premium-hover group relative">
+                <div class="glass-card rounded-[2.5rem] shadow-premium border border-primary-100 overflow-hidden transition-all hover:shadow-premium-hover group relative">
                     <div class="absolute top-0 right-0 w-64 h-64 bg-primary-500/5 rounded-full -mr-32 -mt-32 transition-transform group-hover:scale-110"></div>
                     
                     <div class="p-10 relative z-10">
-                        <div class="flex items-center gap-5 mb-10 border-b border-white/20 pb-6">
+                        <div class="flex items-center gap-5 mb-10 border-b border-primary-100 pb-6">
                             <div class="w-14 h-14 bg-primary-50 text-primary-600 rounded-2xl flex items-center justify-center shadow-inner">
                                 <i class="fas fa-key text-2xl"></i>
                             </div>
@@ -140,19 +140,21 @@
                             </div>
                         </div>
                         <div class="space-y-6">
-                            <label class="block text-xs font-black text-gray-600 uppercase tracking-widest ml-1">API Access Token</label>
-                            <div class="flex gap-4">
-                                <div class="flex-1 relative">
-                                    <input type="text" id="api_token" readonly value="{{ $settings['api_token'] }}" 
-                                        class="w-full pl-6 pr-16 py-5 rounded-3xl border border-white/50 bg-gray-100/50 text-gray-500 font-mono text-xs font-black tracking-tight shadow-inner">
-                                    <div class="absolute right-6 top-1/2 -translate-y-1/2 flex items-center gap-2">
-                                        <i class="fas fa-lock text-gray-300"></i>
+                            <div class="space-y-3">
+                                <label class="block text-xs font-black text-gray-600 uppercase tracking-widest ml-1">API Access Token</label>
+                                <div class="flex gap-3">
+                                    <div class="relative flex-1">
+                                        <input type="text" id="api_token" readonly value="{{ $settings['api_token'] }}" 
+                                            class="w-full pl-6 pr-14 py-5 rounded-3xl border border-primary-100 bg-gray-50/80 text-gray-500 font-mono text-xs font-black tracking-tight shadow-inner">
+                                        <div class="absolute right-6 top-1/2 -translate-y-1/2 flex items-center gap-2">
+                                            <i class="fas fa-lock text-gray-300"></i>
+                                        </div>
                                     </div>
+                                    <button type="button" onclick="copyToken()" id="copy-btn"
+                                        class="bg-white border border-primary-100 hover:border-primary-500 hover:text-primary-600 px-6 rounded-3xl transition-all shadow-sm active:scale-95 group flex items-center justify-center">
+                                        <i class="fas fa-copy text-lg group-hover:scale-110 transition-transform"></i>
+                                    </button>
                                 </div>
-                                <button type="button" onclick="copyToken()" id="copy-btn"
-                                    class="bg-white border border-white/80 hover:border-primary-500 hover:text-primary-600 px-8 rounded-3xl transition-all shadow-sm active:scale-95 group">
-                                    <i class="fas fa-copy text-lg group-hover:scale-110 transition-transform"></i>
-                                </button>
                             </div>
                             <div class="p-4 bg-primary-50/50 rounded-2xl border border-primary-100 flex items-center gap-3">
                                 <i class="fas fa-exclamation-triangle text-primary-500 text-xs"></i>

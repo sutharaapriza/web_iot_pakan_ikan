@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	html, body {
+		height: 100%;
+		font-family: 'Outfit', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+}
+
+/* Elegant background gradient */
+.bg-gradient-premium {
+	background: linear-gradient(135deg, #eff6ff 0%, #ffffff 48%, #dbeafe 100%);
+	min-height: 100vh;
+}
+
+/* Glassy components */
+.glass-card {
+	background: rgba(255, 255, 255, 0.65);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.03);
+}
+.glass-nav {
+	background: rgba(255, 255, 255, 0.75);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+}
+
+.text-gradient {
+	background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.animate-float { animation: float 3s ease-in-out infinite; }
+@keyframes float { 0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)} }
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar { width: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #e6eef9; border-radius: 10px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #cfe0fb; }
+
+/* Sidebar transition helpers */
+.sidebar-panel,
+.sidebar-toggle-button { transform: translate3d(0,0,0); backface-visibility: hidden; will-change: transform; }
+.sidebar-panel, .main-panel { transition: transform 320ms cubic-bezier(.22,1,.36,1), margin-left 320ms cubic-bezier(.22,1,.36,1), width 320ms cubic-bezier(.22,1,.36,1); contain: layout paint style; }
+.sidebar-panel.is-closed { transform: translate3d(-100%,0,0); }
+
+@media (prefers-reduced-motion: reduce) {
+	.sidebar-panel, .main-panel { transition-duration: 1ms; }
+}
+
+/* Utility: subtle rounded button */
+.btn-elegant { @apply rounded-xl px-4 py-2 bg-white/90 border border-primary-100 text-primary-700 shadow-lg hover:bg-primary-50 transition-colors; }
+
